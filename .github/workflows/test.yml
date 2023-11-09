@@ -1,0 +1,16 @@
+name: Run Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Run Test
+        run: cargo test
+        working-directory: ./rust
